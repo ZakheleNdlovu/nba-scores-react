@@ -49,7 +49,7 @@ const Athlete = ({ route }) => {
         )
     }
 
-    if (athlete.categories) {
+    if (athlete) {
         if (route.params.item.headshot) {
             return (
                 <View>
@@ -86,6 +86,7 @@ const Athlete = ({ route }) => {
                         </View>
 
                     </View>
+
                 </View>
             )
         }
@@ -125,6 +126,9 @@ const Athlete = ({ route }) => {
                         </View>
 
                     </View>
+                    <View>
+
+                    </View>
                 </View>
             )
         }
@@ -140,12 +144,10 @@ const Athlete = ({ route }) => {
                     <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Height: {route.params.item.displayHeight}</Text>
                     <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Age: {route.params.item.age} years old</Text>
                 </View>
-                <View style={{ width: '100%', paddingLeft: 5 }}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 25 }}>Statistics</Text>
+                <View style={{ width: '100%', paddingLeft: 5, alignItems: 'center', height: '100%' }}>
+                    <Text style={{ fontWeight: 'bold', fontSize: 25 }}>No Statistics available</Text>
                 </View>
-                <View style={{ width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
-                    <Text>No stats available</Text>
-                </View>
+
             </View>
         )
     }
