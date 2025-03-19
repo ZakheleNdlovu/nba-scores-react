@@ -29,22 +29,25 @@ export default Nav1
 
 const styles = StyleSheet.create({
     nav: {
-        height: 40,
+        height: 45,
         flexDirection: 'row',
-        padding: 3,
+        paddingBottom: 4,
         alignItems: 'center',
         justifyContent: 'space-evenly',
-
+        backgroundColor: 'tomato',
+        width: '100%'
     },
     box: {
-        flex: 1,
-        borderStyle: 'solid',
-        borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 5,
-        height: 40,
+
+        backgroundColor: 'lightblue',
+        borderBottomRightRadius: 15,
+        borderBottomLeftRadius: 15,
+        height: 35,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'space-between',
+        padding: 3,
+        width: '33%'
+
     },
     text: {
         fontSize: 20,

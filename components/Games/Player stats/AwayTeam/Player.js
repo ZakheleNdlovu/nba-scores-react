@@ -1,7 +1,7 @@
 import { View, Text, FlatList, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
-const Gamestats = ({ route, id }) => {
+const Player = ({ route, id }) => {
 
     const [lineup1, setLineup1] = useState([])
     const [error, setError] = useState('')
@@ -27,7 +27,6 @@ const Gamestats = ({ route, id }) => {
         getResponse1()
 
 
-
     }, [])
 
     if (loading) {
@@ -48,11 +47,21 @@ const Gamestats = ({ route, id }) => {
                     <Text style={{ fontSize: 12, fontWeight: 'bold' }}>{lineup1.position.abbreviation}</Text>
                 </View>
 
-
             </View>
         )
     }
-
+    else {
+        return (
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <View style={{ width: '15%', height: '5%' }}></View>
+                <View style={{ width: 10 }}></View>
+                <View style={{ width: '65%', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                    <Text>{lineup1.shortName}</Text>
+                    <Text style={{ fontSize: 12, fontWeight: 'bold' }}>{lineup1.position.abbreviation}</Text>
+                </View>
+            </View>
+        )
+    }
 }
 
-export default Gamestats
+export default Player

@@ -10,26 +10,29 @@ const ControlAll = () => {
 
     if (state === 1) {
         return (
-            <View style={{ height: '100%', paddingTop: 7 }}>
-                <Nav1 setState={setState} />
+            <View style={{ height: '100%', padding: 2, paddingTop: 5, backgroundColor: 'tomato' }}>
+
                 <Navigation />
+                <Nav1 setState={setState} />
             </View>
         )
     }
 
     if (state === 2) {
         return (
-            <View style={{ height: '100%', paddingTop: 7 }}>
-                <Nav1 setState={setState} />
+            <View style={{ height: '100%', padding: 1, paddingTop: 10, backgroundColor: 'tomato' }}>
+
                 <Standings />
+                <Nav1 setState={setState} />
             </View>
         )
     }
     if (state === 3) {
         return (
-            <View style={{ height: '100%', paddingTop: 7 }}>
-                <Nav1 setState={setState} />
+            <View style={{ height: '100%', padding: 1, paddingTop: 10 }}>
+
                 <Navigation1 />
+                <Nav1 setState={setState} />
             </View>
         )
     }

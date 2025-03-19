@@ -40,11 +40,11 @@ const Standings = () => {
     }
 
     return (
-        <View style={{ padding: 2 }}>
-            <View>
+        <View style={{ padding: 1, height: '94%' }}>
+            <View style={{ backgroundColor: 'tomato' }}>
                 <Text style={{ fontSize: 20, fontWeight: 'bold' }}>EASTERN CONFERENCE </Text>
             </View>
-            <View style={{ padding: 5, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 2 }}>
+            <View style={{ padding: 5, backgroundColor: 'lightblue' }}>
                 <View style={{ flexDirection: 'row' }}>
                     <View style={{ width: 50 }}>
                         <Text>Seed</Text>
@@ -71,9 +71,9 @@ const Standings = () => {
             </View>
             <FlatList data={standing.standings.groups[0].standings.entries} renderItem={({ item }) => {
                 return (
-                    <View style={{ width: '100%' }}>
+                    <View style={{ width: '100%', height: 20, backgroundColor: 'white' }}>
 
-                        <View style={{ flexDirection: 'row' }}>
+                        <View style={{ flexDirection: 'row', backgroundColor: `#${item.team.color}` }}>
                             <View style={{ width: 40, paddingLeft: 5 }}>
                                 <Text>{item.team.seed}</Text>
                             </View>
@@ -100,10 +100,10 @@ const Standings = () => {
                 )
             }} />
             <View style={{ height: 10 }}></View>
-            <View>
+            <View style={{ backgroundColor: 'tomato' }}>
                 <Text style={{ fontSize: 20, fontWeight: 'bold' }}>WESTERN CONFERENCE </Text>
             </View>
-            <View style={{ padding: 5, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 2 }}>
+            <View style={{ padding: 4, backgroundColor: 'lightblue' }}>
                 <View style={{ flexDirection: 'row' }}>
                     <View style={{ width: 50 }}>
                         <Text>Seed</Text>
@@ -130,7 +130,7 @@ const Standings = () => {
             </View>
             <FlatList data={standing.standings.groups[1].standings.entries} renderItem={({ item }) => {
                 return (
-                    <View style={{ width: '100%' }}>
+                    <View style={{ width: '100%', height: 20, backgroundColor: 'white' }}>
 
                         <View style={{ flexDirection: 'row' }}>
                             <View style={{ width: 40, paddingLeft: 5 }}>

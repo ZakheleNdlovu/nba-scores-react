@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderStyle: 'solid',
 
-        borderRadius: 5,
+        borderRadius: 1,
         alignItems: 'center'
     }
 })
