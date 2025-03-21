@@ -285,7 +285,7 @@ const GameDetail = ({ route, navigation }) => {
                         </ScrollView>
                         <View style={{ height: 5 }}></View>
 
-                        <ScrollView style={{ height: '50%' }}>
+                        <ScrollView style={{ height: '51%' }}>
                             <View style={{ alignItems: 'center' }}>
                                 <Text>Highest rated players</Text>
                             </View>
@@ -316,7 +316,7 @@ const GameDetail = ({ route, navigation }) => {
                             </View>
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                 <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
-                                    <View style={{ alignItems: 'center', width: 205 }}>
+                                    <View style={{ alignItems: 'center', width: 210 }}>
                                         <Text>{route.params.item.competitions[0].competitors[1].leaders[0].leaders[0].value}</Text>
                                         <Image source={{ uri: route.params.item.competitions[0].competitors[1].leaders[0].leaders[0].athlete.headshot }} width={50} height={50} />
                                         <Text>{route.params.item.competitions[0].competitors[1].leaders[0].leaders[0].athlete.displayName}</Text>
@@ -327,7 +327,7 @@ const GameDetail = ({ route, navigation }) => {
 
                                 <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
 
-                                    <View style={{ alignItems: 'center', width: 205 }}>
+                                    <View style={{ alignItems: 'center', width: 210 }}>
                                         <Text>{route.params.item.competitions[0].competitors[0].leaders[0].leaders[0].value}</Text>
                                         <Image source={{ uri: route.params.item.competitions[0].competitors[0].leaders[0].leaders[0].athlete.headshot }} width={50} height={50} />
                                         <Text>{route.params.item.competitions[0].competitors[0].leaders[0].leaders[0].athlete.displayName}</Text>
@@ -610,8 +610,10 @@ const GameDetail = ({ route, navigation }) => {
     if (route.params.item.competitions[0].status.type.state === 'post') {
         return (
             <View>
-                <TouchableOpacity onPress={() => navigation.navigate('Lineup', { item: route.params.item })}>
-                    <View style={styles.frame}>
+                <View style={styles.frame}
+
+                >
+                    <TouchableOpacity onPress={() => navigation.navigate('Lineup', { item: route.params.item })}>
                         <View style={{ alignItems: 'center' }}>
                             <Text>{route.params.item.competitions[0].venue.fullName} - {route.params.item.competitions[0].venue.address.city}</Text>
                             <Text>{route.params.item.competitions[0].status.type.detail}</Text>
@@ -634,15 +636,15 @@ const GameDetail = ({ route, navigation }) => {
                                 </View>
                                 <Text>{route.params.item.competitions[0].competitors[0].score}</Text>
                             </View>
+
                         </View>
-                        <View style={{ padding: 4 }}>
+                        <View style={{ padding: 4, alignItems: 'center' }}>
                             <Text>Tap to see full lineup</Text>
                         </View>
-                    </View>
-                </TouchableOpacity>
-
+                    </TouchableOpacity>
+                </View>
                 <View style={{ paddingBottom: 5 }}>
-                    <ScrollView >
+                    <ScrollView style={{ height: '26%' }}>
                         <View style={styles.scroll}>
                             <Text>Game stats</Text>
                             <View style={{ alignItems: 'center' }}>
@@ -714,106 +716,106 @@ const GameDetail = ({ route, navigation }) => {
                     </ScrollView>
                     <View style={{ height: 5 }}></View>
 
-                    <View style={{ alignItems: 'center' }}>
-                        <Text>Highest rated players</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row' }}>
-                        <View style={{ flex: 1, alignItems: 'center', padding: 3 }}>
+                    <ScrollView style={{ height: '50%' }}>
+                        <View style={{ alignItems: 'center' }}>
+                            <Text>Highest rated players</Text>
+                        </View>
+                        <View style={{ flexDirection: 'row' }}>
+                            <View style={{ flex: 1, alignItems: 'center', padding: 3 }}>
 
+                                <Image source={{ uri: route.params.item.competitions[0].competitors[1].leaders[3].leaders[0].athlete.headshot }} width={50} height={50} />
+                                <Text>{route.params.item.competitions[0].competitors[1].leaders[3].leaders[0].athlete.displayName}</Text>
+                                <View style={{ alignItems: 'center', backgroundColor: 'lightgray' }}>
+                                    <Text>{route.params.item.competitions[0].competitors[1].leaders[3].leaders[0].displayValue}</Text>
+                                </View>
+                            </View>
+                            <View style={{ flex: 1, alignItems: 'center', padding: 3 }}>
 
-                            < Image source={{ uri: route.params.item.competitions[0].competitors[1].leaders[3].leaders[0].athlete.headshot }} width={50} height={50} />
-                            <Text>{route.params.item.competitions[0].competitors[1].leaders[3].leaders[0].athlete.displayName}</Text>
-                            <View style={{ alignItems: 'center', backgroundColor: 'lightgray' }}>
-                                <Text>{route.params.item.competitions[0].competitors[1].leaders[3].leaders[0].displayValue}</Text>
+                                <Image source={{ uri: route.params.item.competitions[0].competitors[0].leaders[3].leaders[0].athlete.headshot }} width={50} height={50} />
+                                <Text>{route.params.item.competitions[0].competitors[0].leaders[3].leaders[0].athlete.displayName}</Text>
+                                <View style={{ alignItems: 'center', backgroundColor: 'lightgray' }}>
+                                    <Text>{route.params.item.competitions[0].competitors[0].leaders[3].leaders[0].displayValue}</Text>
+                                </View>
                             </View>
 
                         </View>
-                        <View style={{ flex: 1, alignItems: 'center', padding: 3 }}>
-
-                            <Image source={{ uri: route.params.item.competitions[0].competitors[0].leaders[3].leaders[0].athlete.headshot }} width={50} height={50} />
-                            <Text>{route.params.item.competitions[0].competitors[0].leaders[3].leaders[0].athlete.displayName}</Text>
-                            <View style={{ alignItems: 'center', backgroundColor: 'lightgray' }}>
-                                <Text>{route.params.item.competitions[0].competitors[0].leaders[3].leaders[0].displayValue}</Text>
-                            </View>
+                        <View style={{ alignItems: 'center' }}>
+                            <Text>Game leaders</Text>
                         </View>
+                        <View style={{ alignItems: 'center' }}>
+                            <Text>{route.params.item.competitions[0].competitors[0].leaders[0].displayName}</Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
+                                <View style={{ alignItems: 'center', width: 205 }}>
+                                    <Text>{route.params.item.competitions[0].competitors[1].leaders[0].leaders[0].value}</Text>
+                                    <Image source={{ uri: route.params.item.competitions[0].competitors[1].leaders[0].leaders[0].athlete.headshot }} width={50} height={50} />
+                                    <Text>{route.params.item.competitions[0].competitors[1].leaders[0].leaders[0].athlete.displayName}</Text>
 
-                    </View>
-                    <View style={{ alignItems: 'center' }}>
-                        <Text>Game leaders</Text>
-                    </View>
-                    <View style={{ alignItems: 'center' }}>
-                        <Text>{route.params.item.competitions[0].competitors[0].leaders[0].displayName}</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
-                            <View style={{ alignItems: 'center', width: 205 }}>
-                                <Text>{route.params.item.competitions[0].competitors[1].leaders[0].leaders[0].value}</Text>
-                                <Image source={{ uri: route.params.item.competitions[0].competitors[1].leaders[0].leaders[0].athlete.headshot }} width={50} height={50} />
-                                <Text>{route.params.item.competitions[0].competitors[1].leaders[0].leaders[0].athlete.displayName}</Text>
+                                </View>
 
                             </View>
 
-                        </View>
+                            <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
 
-                        <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
+                                <View style={{ alignItems: 'center', width: 205 }}>
+                                    <Text>{route.params.item.competitions[0].competitors[0].leaders[0].leaders[0].value}</Text>
+                                    <Image source={{ uri: route.params.item.competitions[0].competitors[0].leaders[0].leaders[0].athlete.headshot }} width={50} height={50} />
+                                    <Text>{route.params.item.competitions[0].competitors[0].leaders[0].leaders[0].athlete.displayName}</Text>
+                                </View>
 
-                            <View style={{ alignItems: 'center', width: 205 }}>
-                                <Text>{route.params.item.competitions[0].competitors[0].leaders[0].leaders[0].value}</Text>
-                                <Image source={{ uri: route.params.item.competitions[0].competitors[0].leaders[0].leaders[0].athlete.headshot }} width={50} height={50} />
-                                <Text>{route.params.item.competitions[0].competitors[0].leaders[0].leaders[0].athlete.displayName}</Text>
                             </View>
 
                         </View>
+                        <View style={{ alignItems: 'center' }}>
+                            <Text>{route.params.item.competitions[0].competitors[0].leaders[1].displayName}</Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
+                                <View style={{ alignItems: 'center', width: 205 }}>
+                                    <Text>{route.params.item.competitions[0].competitors[1].leaders[1].leaders[0].value}</Text>
+                                    <Image source={{ uri: route.params.item.competitions[0].competitors[1].leaders[1].leaders[0].athlete.headshot }} width={50} height={50} />
+                                    <Text>{route.params.item.competitions[0].competitors[1].leaders[1].leaders[0].athlete.displayName}</Text>
+                                </View>
 
-                    </View>
-                    <View style={{ alignItems: 'center' }}>
-                        <Text>{route.params.item.competitions[0].competitors[0].leaders[1].displayName}</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
-                            <View style={{ alignItems: 'center', width: 205 }}>
-                                <Text>{route.params.item.competitions[0].competitors[1].leaders[1].leaders[0].value}</Text>
-                                <Image source={{ uri: route.params.item.competitions[0].competitors[1].leaders[1].leaders[0].athlete.headshot }} width={50} height={50} />
-                                <Text>{route.params.item.competitions[0].competitors[1].leaders[1].leaders[0].athlete.displayName}</Text>
+                            </View>
+
+                            <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
+
+                                <View style={{ alignItems: 'center', width: 205 }}>
+                                    <Text>{route.params.item.competitions[0].competitors[0].leaders[1].leaders[0].value}</Text>
+                                    <Image source={{ uri: route.params.item.competitions[0].competitors[0].leaders[1].leaders[0].athlete.headshot }} width={50} height={50} />
+                                    <Text>{route.params.item.competitions[0].competitors[0].leaders[1].leaders[0].athlete.displayName}</Text>
+                                </View>
+
                             </View>
 
                         </View>
+                        <View style={{ alignItems: 'center' }}>
+                            <Text>{route.params.item.competitions[0].competitors[0].leaders[2].displayName}</Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
+                                <View style={{ alignItems: 'center', width: 205 }}>
+                                    <Text>{route.params.item.competitions[0].competitors[1].leaders[2].leaders[0].value}</Text>
+                                    <Image source={{ uri: route.params.item.competitions[0].competitors[1].leaders[2].leaders[0].athlete.headshot }} width={50} height={50} />
+                                    <Text>{route.params.item.competitions[0].competitors[1].leaders[2].leaders[0].athlete.displayName}</Text>
+                                </View>
 
-                        <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
+                            </View>
 
-                            <View style={{ alignItems: 'center', width: 205 }}>
-                                <Text>{route.params.item.competitions[0].competitors[0].leaders[1].leaders[0].value}</Text>
-                                <Image source={{ uri: route.params.item.competitions[0].competitors[0].leaders[1].leaders[0].athlete.headshot }} width={50} height={50} />
-                                <Text>{route.params.item.competitions[0].competitors[0].leaders[1].leaders[0].athlete.displayName}</Text>
+                            <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
+
+                                <View style={{ alignItems: 'center', width: 205 }}>
+                                    <Text>{route.params.item.competitions[0].competitors[0].leaders[2].leaders[0].value}</Text>
+                                    <Image source={{ uri: route.params.item.competitions[0].competitors[0].leaders[2].leaders[0].athlete.headshot }} width={50} height={50} />
+                                    <Text>{route.params.item.competitions[0].competitors[0].leaders[2].leaders[0].athlete.displayName}</Text>
+                                </View>
+
                             </View>
 
                         </View>
-
-                    </View>
-                    <View style={{ alignItems: 'center' }}>
-                        <Text>{route.params.item.competitions[0].competitors[0].leaders[2].displayName}</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
-                            <View style={{ alignItems: 'center', width: 205 }}>
-                                <Text>{route.params.item.competitions[0].competitors[1].leaders[2].leaders[0].value}</Text>
-                                <Image source={{ uri: route.params.item.competitions[0].competitors[1].leaders[2].leaders[0].athlete.headshot }} width={50} height={50} />
-                                <Text>{route.params.item.competitions[0].competitors[1].leaders[2].leaders[0].athlete.displayName}</Text>
-                            </View>
-
-                        </View>
-
-                        <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
-
-                            <View style={{ alignItems: 'center', width: 205 }}>
-                                <Text>{route.params.item.competitions[0].competitors[0].leaders[2].leaders[0].value}</Text>
-                                <Image source={{ uri: route.params.item.competitions[0].competitors[0].leaders[2].leaders[0].athlete.headshot }} width={50} height={50} />
-                                <Text>{route.params.item.competitions[0].competitors[0].leaders[2].leaders[0].athlete.displayName}</Text>
-                            </View>
-
-                        </View>
-
-                    </View>
+                    </ScrollView>
                 </View>
 
             </View >
@@ -828,7 +830,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'black',
         borderStyle: 'solid',
-        height: '23%',
+        height: 155,
         borderRadius: 5,
         alignItems: 'center',
         padding: 4

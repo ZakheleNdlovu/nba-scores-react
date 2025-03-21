@@ -65,10 +65,23 @@ const LineUp = ({ route, navigation }) => {
 
     }, [])
 
-
+    if (loading) {
+        return (
+            <View style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: 'black', height: '100%' }}>
+                <Image source={{ uri: 'https://pluspng.com/img-png/nba-logo-vector-png-nba-logo-png-2400.png' }} width={'100%'} height={'100%'} backgroundColor={'white'} />
+            </View>
+        )
+    }
+    if (error) {
+        return (
+            <View>
+                <Text>Error: {error}</Text>
+            </View>
+        )
+    }
 
     return (
-        <View style={{ height: '99%' }}>
+        <View style={{ height: '100%' }}>
 
 
             <View style={{ padding: 2, alignItems: 'center', justifyContent: 'space-between', width: '100%', height: '40%' }}>
@@ -90,7 +103,7 @@ const LineUp = ({ route, navigation }) => {
                         <View style={{ width: '7%' }}>
                             <Text>AST</Text>
                         </View>
-                        <View style={{ width: '7%' }}>
+                        <View style={{ width: '6%' }}>
                             <Text>RB</Text>
                         </View>
                         <View style={{ width: '7%' }}>
@@ -102,10 +115,10 @@ const LineUp = ({ route, navigation }) => {
                         <View style={{ width: '8%' }}>
                             <Text>3PT</Text>
                         </View>
-                        <View style={{ width: '7%' }}>
+                        <View style={{ width: '6%' }}>
                             <Text>FT</Text>
                         </View>
-                        <View style={{ width: '7%' }}>
+                        <View style={{ width: '8%' }}>
                             <Text>FG</Text>
                         </View>
                     </View>
@@ -114,7 +127,7 @@ const LineUp = ({ route, navigation }) => {
                         if (item.didNotPlay) {
                             return (
                                 <View>
-                                    <View style={{ padding: 6, backgroundColor: 'lightgray', borderRadius: 5, height: 30, flexDirection: 'row', alignItems: 'center' }}>
+                                    <View style={{ padding: 6, backgroundColor: 'lightgray', borderRadius: 5, flexDirection: 'row', alignItems: 'center' }}>
                                         <View style={{ width: '46%' }}>
                                             <Player id={item.playerId} />
                                         </View>
@@ -122,6 +135,7 @@ const LineUp = ({ route, navigation }) => {
                                             <Text style={{ fontSize: 12, fontWeight: 'bold' }}>DNP: {item.reason}</Text>
                                         </View>
                                     </View>
+                                    <View style={{ height: 1 }}></View>
                                 </View>
                             )
                         }
@@ -131,7 +145,7 @@ const LineUp = ({ route, navigation }) => {
                                 <View style={{}}>
 
 
-                                    <View style={{ padding: 6, backgroundColor: 'lightgray', borderRadius: 5, height: 25, flexDirection: 'row', alignItems: 'center' }}>
+                                    <View style={{ padding: 5, backgroundColor: 'lightgray', borderRadius: 5, flexDirection: 'row', alignItems: 'center' }}>
 
 
                                         <View style={{ width: '44%' }}>
@@ -143,7 +157,7 @@ const LineUp = ({ route, navigation }) => {
                                         <View style={{ width: '7%' }}>
                                             <Assists eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID={route.params.item.competitions[0].competitors[0].id} />
                                         </View>
-                                        <View style={{ width: '7%' }}>
+                                        <View style={{ width: '6%' }}>
                                             <Rebounds eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID={route.params.item.competitions[0].competitors[0].id} />
                                         </View>
                                         <View style={{ width: '7%' }}>
@@ -155,10 +169,10 @@ const LineUp = ({ route, navigation }) => {
                                         <View style={{ width: '8%' }}>
                                             <Threept eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID={route.params.item.competitions[0].competitors[0].id} />
                                         </View>
-                                        <View style={{ width: '7%' }}>
+                                        <View style={{ width: '6%' }}>
                                             <FreeThrow eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID={route.params.item.competitions[0].competitors[0].id} />
                                         </View>
-                                        <View style={{ width: '7%' }}>
+                                        <View style={{ width: '8%' }}>
                                             <FieldGoal eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID={route.params.item.competitions[0].competitors[0].id} />
                                         </View>
 
@@ -200,7 +214,7 @@ const LineUp = ({ route, navigation }) => {
                         <View style={{ width: '7%' }}>
                             <Text style={{ fontSize: 12 }}>AST</Text>
                         </View>
-                        <View style={{ width: '7%' }}>
+                        <View style={{ width: '6%' }}>
                             <Text style={{ fontSize: 12 }}>RB</Text>
                         </View>
                         <View style={{ width: '7%' }}>
@@ -220,58 +234,63 @@ const LineUp = ({ route, navigation }) => {
                         </View>
                     </View>
 
-                    <FlatList data={stats1}
-                        renderItem={({ item }) => {
-                            if (item.didNotPlay) {
-                                return (
-                                    <View>
-                                        <View style={{ padding: 6, backgroundColor: 'lightgray', borderRadius: 5, height: 30, flexDirection: 'row', alignItems: 'center' }}>
-                                            <View style={{ width: '46%' }}>
-                                                <Player id={item.playerId} />
+                    <View style={{ height: '91.7%' }}>
+                        <FlatList data={stats1}
+                            renderItem={({ item }) => {
+                                if (item.didNotPlay) {
+                                    return (
+                                        <View>
+                                            <View style={{ padding: 6, backgroundColor: 'lightgray', borderRadius: 5, flexDirection: 'row', alignItems: 'center' }}>
+                                                <View style={{ width: '46%' }}>
+                                                    <Player id={item.playerId} />
+                                                </View>
+                                                <View>
+                                                    <Text style={{ fontSize: 12, fontWeight: 'bold' }}>DNP: {item.reason}</Text>
+                                                </View>
                                             </View>
-                                            <View>
-                                                <Text style={{ fontSize: 12, fontWeight: 'bold' }}>DNP: {item.reason}</Text>
-                                            </View>
+                                            <View style={{ height: 1 }}></View>
                                         </View>
-                                    </View>
-                                )
-                            }
-                            else {
-                                return (
-                                    <View>
-                                        <View style={{ padding: 6, backgroundColor: 'lightgray', borderRadius: 5, height: 30, flexDirection: 'row', alignItems: 'center' }}>
-                                            <View style={{ width: '43%' }}>
-                                                <Player id={item.playerId} />
+                                    )
+                                }
+                                else {
+                                    return (
+                                        <View style={{}}>
+                                            <View style={{ padding: 6, backgroundColor: 'lightgray', borderRadius: 5, flexDirection: 'row', alignItems: 'center' }}>
+                                                <View style={{ width: '43%' }}>
+                                                    <Player id={item.playerId} />
+                                                </View>
+                                                <View style={{ width: '7%' }}>
+                                                    <Points eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} dnp={item.didNotPlay} reason={item.reason} />
+                                                </View>
+                                                <View style={{ width: '7%' }}>
+                                                    <AssistsA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
+                                                </View>
+                                                <View style={{ width: '6%' }}>
+                                                    <ReboundsA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
+                                                </View>
+                                                <View style={{ width: '7%' }}>
+                                                    <StealsA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
+                                                </View>
+                                                <View style={{ width: '8%' }}>
+                                                    <BlocksA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
+                                                </View>
+                                                <View style={{ width: '8%' }}>
+                                                    <ThreeptA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
+                                                </View>
+                                                <View style={{ width: '6%' }}>
+                                                    <FreeThrowA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
+                                                </View>
+                                                <View style={{ width: '8%' }}>
+                                                    <FieldGoalA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
+                                                </View>
                                             </View>
-                                            <View style={{ width: '7%' }}>
-                                                <Points eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} dnp={item.didNotPlay} reason={item.reason} />
-                                            </View>
-                                            <View style={{ width: '7%' }}>
-                                                <AssistsA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
-                                            </View>
-                                            <View style={{ width: '7%' }}>
-                                                <ReboundsA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
-                                            </View>
-                                            <View style={{ width: '7%' }}>
-                                                <StealsA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
-                                            </View>
-                                            <View style={{ width: '8%' }}>
-                                                <BlocksA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
-                                            </View>
-                                            <View style={{ width: '7%' }}>
-                                                <ThreeptA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
-                                            </View>
-                                            <View style={{ width: '7%' }}>
-                                                <FreeThrowA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
-                                            </View>
-                                            <View style={{ width: '7%' }}>
-                                                <FieldGoalA eventID={route.params.item.competitions[0].id} playerID={item.playerId} teamID2={route.params.item.competitions[0].competitors[1].id} />
-                                            </View>
+                                            <View style={{ height: 1 }}></View>
                                         </View>
-                                    </View>
-                                )
-                            }
-                        }} />
+                                    )
+                                }
+                            }} />
+                        <View style={{ width: '100%', borderColor: 'black', borderBottomWidth: 2, borderStyle: 'solid' }}></View>
+                    </View>
                 </View>
 
             </View>

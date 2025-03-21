@@ -42,9 +42,9 @@ const Player = ({ route, id }) => {
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Image source={{ uri: lineup1.headshot.href }} width={20} height={20} />
                 <View style={{ width: 10 }}></View>
-                <View style={{ width: '65%', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
-                    <Text>{lineup1.shortName}</Text>
-                    <Text style={{ fontSize: 12, fontWeight: 'bold' }}>{lineup1.position.abbreviation}</Text>
+                <View style={{ width: '65%' }}>
+                    <Text style={{ fontSize: 12, fontWeight: 'bold' }}>{lineup1.shortName}</Text>
+                    <Text >{lineup1.position.displayName}</Text>
                 </View>
 
             </View>
@@ -55,9 +55,9 @@ const Player = ({ route, id }) => {
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <View style={{ width: '15%', height: '5%' }}></View>
                 <View style={{ width: 10 }}></View>
-                <View style={{ width: '65%', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
-                    <Text>{lineup1.shortName}</Text>
-                    <Text style={{ fontSize: 12, fontWeight: 'bold' }}>{lineup1.position.abbreviation}</Text>
+                <View style={{ width: '65%' }}>
+                    <Text style={{ fontSize: 12, fontWeight: 'bold' }}>{lineup1.shortName}</Text>
+                    <Text >{lineup1.position.displayName}</Text>
                 </View>
             </View>
         )
